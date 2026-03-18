@@ -10,14 +10,13 @@ RUN apk add --no-cache git curl bash
 
 WORKDIR /app
 
-# Copy package files
+# Copy package files for workspace
+COPY package*.json ./
 COPY backend/package*.json ./backend/
 COPY storefront/package*.json ./storefront/
-COPY package*.json ./
 
-# Install ALL dependencies (dev + prod) for building
-RUN cd backend && npm ci && npm cache clean --force
-RUN cd storefront && npm ci && npm cache clean --force
+# Install ALL dependencies from root (workspace-aware)
+RUN npm ci && npm cache clean --force
 
 # Copy source code
 COPY backend ./backend
@@ -43,13 +42,13 @@ RUN apk add --no-cache \
 
 WORKDIR /app
 
-# Copy package files
+# Copy package files for workspace
+COPY package*.json ./
 COPY backend/package*.json ./backend/
 COPY storefront/package*.json ./storefront/
 
-# Install ONLY production dependencies
-RUN cd backend && npm ci --omit=dev && npm cache clean --force
-RUN cd storefront && npm ci --omit=dev && npm cache clean --force
+# Install ONLY production dependencies from root
+RUN npm ci --omit=dev && npm cache clean --force
 
 # Copy source code
 COPY backend ./backend
