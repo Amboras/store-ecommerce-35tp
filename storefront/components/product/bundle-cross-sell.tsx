@@ -1,4 +1,5 @@
 import { medusaServerClient } from '@/lib/medusa-client'
+import { getProductImage } from '@/lib/utils/placeholder-images'
 import BundleCrossSellUI from './bundle-cross-sell-ui'
 
 const BONUS_PRODUCT_HANDLE = 'tshirt'
@@ -78,14 +79,14 @@ export default async function BundleCrossSell({ mainProduct }: { mainProduct: Pr
   const savings = bundleFull - bundleTotal
   const freeShipping = bundleTotal >= FREE_SHIPPING_THRESHOLD
 
-  const mainImage =
-    mainProduct.thumbnail ||
-    mainProduct.images?.[0]?.url ||
-    null
-  const bonusImage =
-    bonusProduct.thumbnail ||
-    bonusProduct.images?.[0]?.url ||
-    null
+  const mainImage = getProductImage(
+    mainProduct.thumbnail || mainProduct.images?.[0]?.url,
+    mainProduct.id,
+  )
+  const bonusImage = getProductImage(
+    bonusProduct.thumbnail || bonusProduct.images?.[0]?.url,
+    bonusProduct.id,
+  )
 
   return (
     <BundleCrossSellUI
