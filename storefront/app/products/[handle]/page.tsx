@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-export const revalidate = 3600 // ISR: revalidate every hour
+export const revalidate = 60 // ISR: revalidate every minute
 import { medusaServerClient } from '@/lib/medusa-client'
 import Image from 'next/image'
 import Link from 'next/link'
