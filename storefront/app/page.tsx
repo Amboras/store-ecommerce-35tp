@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { ArrowRight, Truck, Shield, RotateCcw } from 'lucide-react'
 import CollectionSection from '@/components/marketing/collection-section'
+import LandingCountdownTimer from '@/components/marketing/landing-countdown-timer'
 import { useCollections } from '@/hooks/use-collections'
 import { trackMetaEvent } from '@/lib/meta-pixel'
 import { HERO_PLACEHOLDER, LIFESTYLE_PLACEHOLDER } from '@/lib/utils/placeholder-images'
@@ -73,6 +74,11 @@ export default function HomePage() {
             />
           </div>
         </div>
+      </section>
+
+      {/* Countdown Timer */}
+      <section className="container-custom py-12">
+        <LandingCountdownTimer />
       </section>
 
       {/* Collections */}
