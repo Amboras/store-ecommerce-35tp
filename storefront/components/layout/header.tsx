@@ -81,10 +81,11 @@ export default function Header() {
             </button>
 
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2 group">
               <span className="font-heading text-2xl font-semibold tracking-tight">
                 Store
               </span>
+              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-lime-400 transition-transform group-hover:scale-125" />
             </Link>
 
             {/* Desktop Navigation */}
@@ -127,7 +128,7 @@ export default function Header() {
               >
                 <ShoppingBag className="h-5 w-5" />
                 {itemCount > 0 && (
-                  <span className="absolute top-0.5 right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-foreground text-[10px] font-bold text-background">
+                  <span className="absolute top-0.5 right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-lime-400 text-[10px] font-bold text-foreground ring-2 ring-background">
                     {itemCount}
                   </span>
                 )}

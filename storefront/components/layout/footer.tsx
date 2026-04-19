@@ -40,29 +40,34 @@ export default function Footer() {
   }
 
   return (
-    <footer className="border-t bg-muted/30">
-      <div className="container-custom py-section-sm">
+    <footer className="relative border-t border-foreground/10 bg-foreground text-background overflow-hidden">
+      {/* Lime glow accents */}
+      <div aria-hidden className="pointer-events-none absolute -top-32 left-1/4 h-72 w-72 rounded-full bg-lime-400/15 blur-3xl" />
+      <div aria-hidden className="pointer-events-none absolute -bottom-32 right-1/4 h-72 w-72 rounded-full bg-lime-300/10 blur-3xl" />
+
+      <div className="container-custom relative py-section-sm">
         {/* Main Footer */}
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-block">
+            <Link href="/" className="inline-flex items-center gap-2">
               <span className="font-heading text-2xl font-semibold">
                 Store
               </span>
+              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-lime-400" />
             </Link>
-            <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-xs">
+            <p className="mt-4 text-sm text-background/65 leading-relaxed max-w-xs">
               Curated products crafted with care. Quality you can feel, design you can see.
             </p>
           </div>
 
           {/* Shop Links */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-widest mb-4">Shop</h3>
+            <h3 className="text-xs font-semibold uppercase tracking-widest mb-4 text-lime-300">Shop</h3>
             <ul className="space-y-3">
               {footerLinks.shop.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <Link href={link.href} className="text-sm text-background/65 hover:text-lime-300 transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -72,11 +77,11 @@ export default function Footer() {
 
           {/* Help Links */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-widest mb-4">Help</h3>
+            <h3 className="text-xs font-semibold uppercase tracking-widest mb-4 text-lime-300">Help</h3>
             <ul className="space-y-3">
               {footerLinks.help.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <Link href={link.href} className="text-sm text-background/65 hover:text-lime-300 transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -86,11 +91,11 @@ export default function Footer() {
 
           {/* Company Links */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-widest mb-4">Company</h3>
+            <h3 className="text-xs font-semibold uppercase tracking-widest mb-4 text-lime-300">Company</h3>
             <ul className="space-y-3">
               {companyLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <Link href={link.href} className="text-sm text-background/65 hover:text-lime-300 transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -100,8 +105,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground">
+        <div className="mt-12 pt-8 border-t border-background/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-background/50">
             &copy; {new Date().getFullYear()} Store. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
@@ -110,11 +115,11 @@ export default function Footer() {
                 clearConsent()
                 window.dispatchEvent(new Event('manage-cookies'))
               }}
-              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+              className="text-xs text-background/50 hover:text-lime-300 transition-colors"
             >
               Manage Cookies
             </button>
-            <span className="text-xs text-muted-foreground">Powered by Amboras</span>
+            <span className="text-xs text-background/50">Powered by Amboras</span>
           </div>
         </div>
       </div>

@@ -29,6 +29,26 @@ const config: Config = {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))',
         },
+        lime: {
+          50: 'hsl(var(--lime-50))',
+          100: 'hsl(var(--lime-100))',
+          200: 'hsl(var(--lime-200))',
+          300: 'hsl(var(--lime-300))',
+          400: 'hsl(var(--lime-400))',
+          500: 'hsl(var(--lime-500))',
+          600: 'hsl(var(--lime-600))',
+          700: 'hsl(var(--lime-700))',
+        },
+      },
+      backgroundImage: {
+        'lime-gradient': 'linear-gradient(160deg, hsl(var(--lime-300)), hsl(var(--lime-400)) 55%, hsl(var(--lime-500)))',
+        'lime-radial': 'radial-gradient(ellipse at top, hsl(var(--lime-200) / 0.6), transparent 60%)',
+        'ink-gradient': 'linear-gradient(180deg, hsl(var(--foreground)), hsl(150 15% 16%))',
+      },
+      boxShadow: {
+        'premium': '0 1px 2px hsl(150 15% 8% / 0.04), 0 8px 24px hsl(150 15% 8% / 0.06)',
+        'premium-lg': '0 2px 4px hsl(150 15% 8% / 0.05), 0 24px 48px hsl(150 15% 8% / 0.10)',
+        'lime-glow': '0 8px 32px hsl(var(--lime-400) / 0.35)',
       },
       fontFamily: {
         heading: ['var(--font-heading)', 'sans-serif'],
