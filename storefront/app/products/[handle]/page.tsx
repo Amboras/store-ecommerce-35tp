@@ -9,6 +9,7 @@ import { Truck, RotateCcw, Shield, ChevronRight } from 'lucide-react'
 import ProductActions from '@/components/product/product-actions'
 import ProductAccordion from '@/components/product/product-accordion'
 import { ProductViewTracker } from '@/components/product/product-view-tracker'
+import BundleCrossSell from '@/components/product/bundle-cross-sell'
 import { getProductPlaceholder } from '@/lib/utils/placeholder-images'
 import { type VariantExtension } from '@/components/product/product-price'
 
@@ -201,6 +202,9 @@ export default async function ProductPage({
               description={product.description}
               details={product.metadata as Record<string, string> | undefined}
             />
+
+            {/* Bundle Cross-Sell — Buy 2 + Bonus Item */}
+            <BundleCrossSell mainProduct={product as any} />
           </div>
         </div>
       </div>
