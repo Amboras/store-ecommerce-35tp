@@ -1,3 +1,5 @@
+import { ClientPluginSlot } from '@/components/ClientPluginSlot'
+import { PluginSlot } from '@/components/PluginSlot'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
@@ -110,6 +112,7 @@ export default async function ProductPage({
 
   return (
     <>
+      <ClientPluginSlot name="pdpAnalytics" context={{ productId: product.id, productName: product.title }} />
       {/* Breadcrumbs */}
       <div className="border-b">
         <div className="container-custom py-3">
@@ -169,6 +172,7 @@ export default async function ProductPage({
               )}
               <h1 className="text-h2 font-heading font-semibold">{product.title}</h1>
             </div>
+            <PluginSlot name="pdpAfterTitle" context={{ productId: product.id }} />
 
             <ProductViewTracker
               productId={product.id}
@@ -180,6 +184,7 @@ export default async function ProductPage({
 
             {/* Variant Selector + Price + Add to Cart (client component) */}
             <ProductActions product={product} variantExtensions={variantExtensions} />
+            <ClientPluginSlot name="pdpBelowAddToCart" context={{ productId: product.id }} />
 
             {/* Trust Signals */}
             <div className="grid grid-cols-3 gap-4 py-6 border-t">
@@ -202,6 +207,7 @@ export default async function ProductPage({
               description={product.description}
               details={product.metadata as Record<string, string> | undefined}
             />
+            <PluginSlot name="pdpAfterDescription" context={{ productId: product.id }} />
 
             {/* Bundle Cross-Sell — Buy 2 + Bonus Item */}
             <BundleCrossSell mainProduct={product as any} />

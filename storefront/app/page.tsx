@@ -1,5 +1,6 @@
 'use client'
 
+import { ClientPluginSlot } from '@/components/ClientPluginSlot'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -90,6 +91,8 @@ export default function HomePage() {
         <LandingCountdownTimer />
       </section>
 
+      <ClientPluginSlot name="homeHero" />
+
       {/* Collections */}
       {isLoading ? (
         <section className="py-section">
@@ -116,6 +119,8 @@ export default function HomePage() {
           ))}
         </>
       ) : null}
+
+      <ClientPluginSlot name="homeBelowFeatured" />
 
       {/* Editorial / Brand Story Section */}
       <section className="py-section bg-muted/40">
