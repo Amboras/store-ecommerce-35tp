@@ -86,3 +86,100 @@ Accept cards, Apple Pay, Google Pay, and local payment methods in multiple curre
   GET /store/airwallex-connect — public Airwallex config (environment, payment_ready)
 
 <!-- AMBORAS:PLUGIN:airwallex:END -->
+
+<!-- AMBORAS:PLUGIN:klaviyo:START -->
+### Klaviyo
+npm: @amboras-dev/klaviyo
+
+Email and SMS marketing for ecommerce — flows, segments, and predictive analytics powered by your store data.
+
+**Components (written to your workspace — edit freely):**
+
+> BEFORE rendering any of these components, open the file with the Read tool and read the exported TypeScript `Props` interface. Required props MUST be passed or the build will fail with a type error at runtime.
+
+`undefined` —
+  Destination:    `undefined`
+  Required props: (none)
+
+
+
+`undefined` —
+  Destination:    `undefined`
+  Required props: (none)
+
+
+
+`undefined` —
+  Destination:    `undefined`
+  Required props: (none)
+
+
+
+`undefined` —
+  Destination:    `undefined`
+  Required props: (none)
+
+
+
+**Files this plugin writes to your workspace:**
+
+> The `ownership` tag tells you whether your edits survive a re-sync.
+> `merchant` = your edits are preserved on sync / upgrade / publish-swap; the file is yours to brand.
+> `orchestrator` = re-emitted on every install; **do not edit** — the file marshals a wire-protocol or SDK contract, and the fix belongs in the plugin package, not the template.
+
+`components/plugins/klaviyo/SmsConsentCheckbox.jsx` — **orchestrator** (managed by Amboras — do not edit)
+`components/plugins/klaviyo/SmsPreferencesNavCard.jsx` — **orchestrator** (managed by Amboras — do not edit)
+`app/account/notifications/page.jsx` — **orchestrator** (managed by Amboras — do not edit)
+
+**Hooks (from npm package — import, do not copy):**
+
+`useKlaviyoIdentifyEffect` — `useKlaviyoIdentifyEffect(email, extra?)`
+  Returns: void — fires klaviyo.identify on email transitions, deduped
+  Import:  `import { useKlaviyoIdentifyEffect } from '@amboras-dev/klaviyo'`
+
+`useKlaviyoTrack` — `useKlaviyoTrack(): (metric, properties?) => void`
+  Returns: Stable callback for custom events
+  Import:  `import { useKlaviyoTrack } from '@amboras-dev/klaviyo'`
+
+`useKlaviyoSmsStatus` — `useKlaviyoSmsStatus(opts?): UseQueryResult<SmsStatusData>`
+  Returns: { smsActive, senderConfigured, disclosureText, smsListId, publicKey, storeName } — NEW in 0.5.0: publicKey + storeName
+  Import:  `import { useKlaviyoSmsStatus } from '@amboras-dev/klaviyo'`
+
+`useKlaviyoSubscribePhone` — `useKlaviyoSubscribePhone(opts): UseMutationResult`
+  Returns: Returns { ok: true } | { ok: false, error: { code, message } }. Codes: no_public_key, invalid_phone, unsupported_country, klaviyo_error
+  Import:  `import { useKlaviyoSubscribePhone } from '@amboras-dev/klaviyo'`
+
+`useKlaviyoUnsubscribePhone` — `useKlaviyoUnsubscribePhone(opts?): UseMutationResult`
+  Returns: Returns structured Result instead of throwing (0.5.0 breaking-ish — see CHANGELOG)
+  Import:  `import { useKlaviyoUnsubscribePhone } from '@amboras-dev/klaviyo'`
+
+`klaviyoTrack` — `klaviyoTrack(metric, properties?)`
+  Returns: Imperative event tracking
+  Import:  `import { klaviyoTrack } from '@amboras-dev/klaviyo'`
+
+`klaviyoIdentify` — `klaviyoIdentify(attrs)`
+  Returns: Imperative identify
+  Import:  `import { klaviyoIdentify } from '@amboras-dev/klaviyo'`
+
+`getActiveIntegrations` — `getActiveIntegrations(opts?): Promise<ActiveIntegrationsResponse | null>`
+  Returns: Server-only fetch from /store/integrations/active. 60s revalidation
+  Import:  `import { getActiveIntegrations } from '@amboras-dev/klaviyo'`
+
+`KlaviyoViewedProduct` — `<KlaviyoViewedProduct productId price ... />`
+  Returns: Drop-in PDP component
+  Import:  `import { KlaviyoViewedProduct } from '@amboras-dev/klaviyo'`
+
+**API endpoints:**
+  GET  /store/integrations/active — { klaviyo: { publicKey, sms_active, sms_sender_configured, sms_disclosure_text, sms_list_id, sms_active_regions, sms_supported_countries } | null, store_name } — 60s cache, busted on credential sync
+  POST /store/klaviyo/unsubscribe-sms — customer self-service unsubscribe (Bearer _medusa_jwt)
+  GET    /api/v1/stores/:storeId/integrations/klaviyo  ← admin auth required
+  POST   /api/v1/stores/:storeId/integrations/klaviyo/connect — body { privateKey }  ← admin auth required
+  DELETE /api/v1/stores/:storeId/integrations/klaviyo  ← admin auth required
+  GET    /admin/klaviyo/sms-status  ← admin auth required
+  POST   /admin/klaviyo/probe-sms  ← admin auth required
+  PATCH  /admin/klaviyo/sms-disclosure  ← admin auth required
+  GET    /admin/klaviyo/sms-events  ← admin auth required
+  POST   /webhooks/klaviyo  ← admin auth required
+  POST   /orchestrator/klaviyo/sync-credentials  ← admin auth required
+
+<!-- AMBORAS:PLUGIN:klaviyo:END -->

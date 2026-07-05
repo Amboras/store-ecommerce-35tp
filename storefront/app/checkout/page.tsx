@@ -1,5 +1,8 @@
 'use client'
 
+// AMBORAS:KLAVIYO:IMPORT:smsconsentcheckbox-checkoutordersummary
+import SmsConsentCheckbox from '@/components/plugins/klaviyo/SmsConsentCheckbox'
+// AMBORAS:KLAVIYO:IMPORT:smsconsentcheckbox-checkoutordersummary:END
 import { ClientPluginSlot } from '@/components/ClientPluginSlot'
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
@@ -568,6 +571,9 @@ export default function CheckoutPage() {
               <div className="border rounded-sm p-6">
                 <h2 className="text-xs uppercase tracking-widest font-semibold mb-6">Order Summary</h2>
                 <ClientPluginSlot name="checkoutOrderSummary" />
+                {/* AMBORAS:KLAVIYO:START id=smsconsentcheckbox-checkoutordersummary slot=checkoutOrderSummary */}
+                <SmsConsentCheckbox />
+                {/* AMBORAS:KLAVIYO:END */}
                 {!hasItems ? (
                   <div className="text-center py-8">
                     <ShoppingBag className="mx-auto h-8 w-8 text-muted-foreground/40" strokeWidth={1.5} />

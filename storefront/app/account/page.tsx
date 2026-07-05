@@ -1,5 +1,8 @@
 'use client'
 
+// AMBORAS:KLAVIYO:IMPORT:smspreferencesnavcard-accountoverview
+import SmsPreferencesNavCard from '@/components/plugins/klaviyo/SmsPreferencesNavCard'
+// AMBORAS:KLAVIYO:IMPORT:smspreferencesnavcard-accountoverview:END
 import { ClientPluginSlot } from '@/components/ClientPluginSlot'
 import { useAuth } from '@/hooks/use-auth'
 import AccountLayout from '@/components/account/account-layout'
@@ -76,6 +79,9 @@ export default function AccountPage() {
         )}
       </div>
     <ClientPluginSlot name="accountOverview" />
+    {/* AMBORAS:KLAVIYO:START id=smspreferencesnavcard-accountoverview slot=accountOverview */}
+    <SmsPreferencesNavCard />
+    {/* AMBORAS:KLAVIYO:END */}
       </AccountLayout>
   )
 }
