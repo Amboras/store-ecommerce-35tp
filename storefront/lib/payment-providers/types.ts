@@ -17,5 +17,5 @@ export interface PaymentProviderConfig {
   label: string
   kind: 'form' | 'redirect'
   matches: (id: string) => boolean
-  Component: (props: PaymentProviderComponentProps) => JSX.Element | null
+  Component: (props: PaymentProviderComponentProps) => ReactElement | null
 }
