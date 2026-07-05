@@ -410,5 +410,3 @@ export default function OrderDetailPage() {
   )
 }
 
-// Import React for use hook
-import React from 'react'
