@@ -8,6 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@airwallex/components-sdk':
+        specifier: ^1.16.0
+        version: 1.32.0
+      '@amboras-dev/airwallex':
+        specifier: 0.2.0
+        version: 0.2.0(react@19.2.5)
       '@amboras-dev/ga4':
         specifier: 0.3.1
         version: 0.3.1(react@19.2.5)
@@ -96,9 +102,20 @@ importers:
 
 packages:
 
+  '@airwallex/airtracker@3.2.0':
+    resolution: {integrity: sha512-PKE5N38ajTVg6ph9JzLpWsICNjqLtf/wWudNVU3UPX9SVy2I5s5ITc281sMSD8+LIE6RJoGjGTO+VYP/io5kig==}
+
+  '@airwallex/components-sdk@1.32.0':
+    resolution: {integrity: sha512-IRrYOyCIWw/cQcndm/n11zx8b7hj2wYF7TD2YLmds9lXIQoir214JF99i1QJAyMsRR//nIRkNFTB2Ta2/etYGw==}
+
   '@alloc/quick-lru@5.2.0':
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
     engines: {node: '>=10'}
+
+  '@amboras-dev/airwallex@0.2.0':
+    resolution: {integrity: sha512-cV70pBdz3TVjSRna9/OJgJ2WEBzOzt8sjS1e7hO3zRmrvkc+I1cUZWRYVfQR0PcnCzH3zFi2m7QmVpKKtMcx8Q==}
+    peerDependencies:
+      react: '>=18'
 
   '@amboras-dev/ga4@0.3.1':
     resolution: {integrity: sha512-+IRk6gNFGf3blbzrrVRsAojwGxyEKhuUrURngjPHwmoSW5iby0GzrplIg+QpA6pyzokd3FBnfrpOjhtaHMjH3Q==}
@@ -2338,7 +2355,18 @@ packages:
 
 snapshots:
 
+  '@airwallex/airtracker@3.2.0': {}
+
+  '@airwallex/components-sdk@1.32.0':
+    dependencies:
+      '@airwallex/airtracker': 3.2.0
+
   '@alloc/quick-lru@5.2.0': {}
+
+  '@amboras-dev/airwallex@0.2.0(react@19.2.5)':
+    dependencies:
+      '@airwallex/components-sdk': 1.32.0
+      react: 19.2.5
 
   '@amboras-dev/ga4@0.3.1(react@19.2.5)':
     dependencies:

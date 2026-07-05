@@ -56,3 +56,33 @@ star ratings and customer reviews for your product
   DELETE /admin/reviews/:id — soft delete  ← admin auth required
   GET    /admin/review-settings — get review configuration  ← admin auth required
   POST   /admin/review-settings — update review configuration  ← admin auth required
+
+<!-- AMBORAS:PLUGIN:airwallex:START -->
+### Airwallex
+npm: @amboras-dev/airwallex
+
+Accept cards, Apple Pay, Google Pay, and local payment methods in multiple currencies via Airwallex.
+
+**Components (written to your workspace — edit freely):**
+
+> BEFORE rendering any of these components, open the file with the Read tool and read the exported TypeScript `Props` interface. Required props MUST be passed or the build will fail with a type error at runtime.
+
+`undefined` —
+  Destination:    `undefined`
+  Required props: (none)
+
+
+
+**Files this plugin writes to your workspace:**
+
+> The `ownership` tag tells you whether your edits survive a re-sync.
+> `merchant` = your edits are preserved on sync / upgrade / publish-swap; the file is yours to brand.
+> `orchestrator` = re-emitted on every install; **do not edit** — the file marshals a wire-protocol or SDK contract, and the fix belongs in the plugin package, not the template.
+
+`lib/payment-providers/airwallex.tsx` — **orchestrator** (managed by Amboras — do not edit)
+`public/.well-known/apple-developer-merchantid-domain-association` — **orchestrator** (managed by Amboras — do not edit)
+
+**API endpoints:**
+  GET /store/airwallex-connect — public Airwallex config (environment, payment_ready)
+
+<!-- AMBORAS:PLUGIN:airwallex:END -->
