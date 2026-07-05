@@ -1,3 +1,5 @@
+import type { ReactElement } from 'react'
+
 import type { Cart } from '@/types'
 
 export type PaymentProviderSessionData = Record<string, unknown>
