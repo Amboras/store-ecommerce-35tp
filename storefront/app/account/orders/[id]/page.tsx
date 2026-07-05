@@ -194,9 +194,9 @@ function AddressCard({ title, address, icon: Icon }: { title: string; address: O
   )
 }
 
-export default function OrderDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const resolvedParams = React.use(params)
-  const { data: order, isLoading, error } = useOrder(resolvedParams.id)
+export default function OrderDetailPage() {
+  const params = useParams<{ id: string }>()
+  const { data: order, isLoading, error } = useOrder(params.id)
 
   return (
     <AccountLayout>
