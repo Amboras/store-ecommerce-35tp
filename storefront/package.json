@@ -19,6 +19,7 @@
     "@amboras-dev/airwallex": "0.2.0",
     "@amboras-dev/ga4": "0.3.1",
     "@amboras-dev/klaviyo": "0.5.0",
+    "@amboras-dev/plugin-types": "^1.1.0",
     "@amboras-dev/reviews": "0.3.0",
     "@hookform/resolvers": "^5.2.2",
     "@medusajs/js-sdk": "^2.13.4",
